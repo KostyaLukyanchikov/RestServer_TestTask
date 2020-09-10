@@ -25,19 +25,19 @@ where '`geonameid`' is an integer corresponding to a unique ID of a certain city
 
 *Example of usage:*
 
-![get_city_info success`](resources/images/get_city_info_success.png)
+![get_city_info success`](static/images/get_city_info_success.png)
 
 In this case, the '`geonameid`' that exists in the database was passed, and the output is a '`json`' object with information about this city.
 
 *Example of usage:*
 
-![get_city_info fail 1`](resources/images/get_city_info_fail1.png)
+![get_city_info fail 1`](static/images/get_city_info_fail1.png)
 
 If you pass a set of digits that doesn't match any '`geonameid`' from the database, we will get an error message with this test.
 
 *Example of incorrect usage:*
 
-![get_city_info fail 2`](resources/images/get_city_info_fail2.png)
+![get_city_info fail 2`](static/images/get_city_info_fail2.png)
 
 Received an error message indicating that for correct work you need to pass an integer.
 
@@ -55,7 +55,7 @@ To call the method, pass the string '`/cities/city_1_name,city_2_name,...,city_n
 
 *Example of usage:*
 
-![get_cities_info success 1`](resources/images/get_cities_info_success1.png)
+![get_cities_info success 1`](static/images/get_cities_info_success1.png)
 
 In this case, we are looking for cities '`Заозёрск, MoScOW,kursk`', note that method ignores the case of the inputted string and returns all cities that contains such names in there '`name, asiiname or alternatenames`' characteristics of this city in database.
 
@@ -74,7 +74,7 @@ In '`json`' object returned by method we can see parameters:
 
 *Example of usage:*
 
-![get_cities_info success 2`](resources/images/get_cities_info_success2.png)
+![get_cities_info success 2`](static/images/get_cities_info_success2.png)
 
 In this case, we are looking for cities '`somecity,zaozersk,kusk`'.
 '`start`' and '`limit`' we have clearly indicated here as '`1`' and '`3`' respectively.
@@ -83,7 +83,7 @@ You may notice that a new '`Search failed`' component has been added. It is disp
 
 *Example of incorrect usage:*
 
-![get_cities_info fail 1`](resources/images/get_cities_info_fail1.png)
+![get_cities_info fail 1`](static/images/get_cities_info_fail1.png)
 
 Received an error message indicating that for correct work you need to pass a list of cities names separated by '`«,» or «, »`.
 
@@ -98,7 +98,7 @@ where '`city_1_name,city_2_name`' are the names of the cities (in russian) you w
 
 *Example of usage:*
 
-![compare_cities success 1`](resources/images/compare_cities_success1.png)
+![compare_cities success 1`](static/images/compare_cities_success1.png)
 
 In this case, we are looking for cities '`самара, омск`', note that method ignores the case of the inputted string and returns all cities that contains such names in there '`name, asiiname or alternatenames`' characteristics of this city in database.
 
@@ -110,7 +110,7 @@ You may notice that a new '`Comparison`' component has been added, which shows a
 
 *Example of usage:*
 
-![compare_cities success 2`](resources/images/compare_cities_success2.png)
+![compare_cities success 2`](static/images/compare_cities_success2.png)
 
 In this case, we are looking for cities '`самара,какой-то город`'.
 
@@ -122,7 +122,7 @@ And the '`Comparison`' component has not been added, because we don't have city 
 
 *Example of usage:*
 
-![compare_cities success 3`](resources/images/compare_cities_success3.png)
+![compare_cities success 3`](static/images/compare_cities_success3.png)
 
 In this case, we are looking for cities '`самра,какой-то город`'.
 

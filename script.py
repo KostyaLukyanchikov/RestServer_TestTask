@@ -1,11 +1,12 @@
 import re
+import markdown
 import main_methods
 from flask import Flask, jsonify, make_response, render_template, request
 from flask_restful import Resource, Api
 from api_helpers import to_pretty_json, get_paginated_list, filter_not_found
+from flaskext.markdown import Markdown
 
 """Notes
-Сделать ридми
 Протестить
 Папка с зависимостями
 python3

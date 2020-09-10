@@ -7,7 +7,7 @@ columns = ["geonameid", "name", "asciiname", "alternatenames", "latitude", "long
            "feature class", "feature code", "country code", "cc2", "admin1 code", "admin2 code",
            "admin3 code", "admin4 code", "population", "elevation", "dem", "timezone", "modification date"]
 
-table = pd.read_csv('resources/RU.txt', header=None, sep="\t", low_memory=False, names=columns, encoding="utf-8")
+table = pd.read_csv('static/RU.txt', header=None, sep="\t", low_memory=False, names=columns, encoding="utf-8")
 
 new_table = table.copy()
 new_table = new_table.loc[table['feature class'] == 'P']
