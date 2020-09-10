@@ -4,10 +4,10 @@ Test task for an Intern for the position «Analyst (python)»
 ### Title list
 * [Task Description](#Task-Description)
 * [Methods description](#Methods-description)
-    * [Method '`get_city_info`'](#Method-'get_city_info')
-    * [Method '`get_cities_info`'](#Method-'get_cities_info')
-    * [Method '`compare_cities`'](#Method-'compare_cities')
-* [Used tools]()
+    * [Method '`get_city_info`'](#Method-get_city_info)
+    * [Method '`get_cities_info`'](#Method-get_cities_info)
+    * [Method '`compare_cities`'](#Method-compare_cities)
+* [Used tools](#Used-tools)
 
 
 ### Task Description
@@ -16,7 +16,7 @@ The project is an implemented HTTP server for providing information on geographi
 
 ### Methods description
 
-#### Method 'get_city_info'
+#### Method get_city_info
 The method takes the '`geonameid`' as input and returns information about the city.
 
 To call the method, pass the string  '`/city/geonameid`',
@@ -41,7 +41,7 @@ If you pass a set of digits that doesn't match any '`geonameid`' from the databa
 
 Received an error message indicating that for correct work you need to pass an integer.
 
-#### Method 'get_cities_info'
+#### Method get_cities_info
 
 The method takes the page and the number of cities  displayed on the page and returns a list of cities with their information.
 
@@ -87,7 +87,7 @@ You may notice that a new '`Search failed`' component has been added. It is disp
 
 Received an error message indicating that for correct work you need to pass a list of cities names separated by '`«,» or «, »`.
 
-#### Method 'compare_cities'
+#### Method compare_cities
 
 The method takes the names of two cities (in russian) and returns information about the cities found, as well as additional information: which one is located to the North and whether they have the different time zone and how much they differed (when several cities have the same name, resolves ambiguity by choosing a city with a large population; if the population matches, takes the first one that comes across)
 
