@@ -1,6 +1,7 @@
-#Test task for an Intern for the position «Analyst (python)»
+Test task for an Intern for the position «Analyst (python)»
+===
 
-###Title list
+### Title list
 * [Task Description]()
 * [Methods description]()
     * [Method '`get_city_info`']()
@@ -9,15 +10,16 @@
 * [Used tools]()
 
 
-###Task Description
+### Task Description
+
 The project is an implemented HTTP server for providing 
 information on geographical objects in Russia. The data 
 is taken from the geographical database «Geonames». 
 The implemented server provides a REST API service.
 
-###Methods description
+### Methods description
 
-####1. Method '`get_city_info`':
+#### Method '`get_city_info`':
 The method takes the '`geonameid`' as input and 
 returns information about the city.
 
@@ -51,7 +53,7 @@ from the database, we will get an error message with this test.
 Received an error message indicating that for correct work
 you need to pass an integer.
 
-####2. Method '`get_cities_info`':
+#### Method '`get_cities_info`':
 
 The method takes the page and the number of cities  displayed 
 on the page and returns a list of cities with their information.
@@ -111,7 +113,7 @@ You may notice that a new '`Search failed`' component has been added. It is disp
 
 Received an error message indicating that for correct work you need to pass a list of cities names separated by '`«,» or «, »`.
 
-####3. Method '`compare_cities`':
+#### Method '`compare_cities`':
 
 The method takes the names of two cities (in russian) and returns information about the cities found, as well as additional information: which one is located to the North and whether they have the different time zone and how much they differed (when several cities have the same name, resolves ambiguity by choosing a city with a large population; if the population matches, takes the first one that comes across)
 
@@ -156,7 +158,7 @@ In this case, we are looking for cities '`самра,какой-то город`
 
 Now the same thing happened as in the example above, except that there is no '`Cities`' section now, since none of the cities '`самра,какой-то город`' were found in the database.
 
-###Used tools
+### Used tools
     Flask - for server creation
     Flask Restful - for REST API realisation
     Pandas - for working with data
