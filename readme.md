@@ -5,79 +5,53 @@ Test task for an Intern for the position «Analyst (python)»
 * [Task Description](#Task-Description)
 * [Methods description](#Methods-description)
     * [Method '`get_city_info`'](#Method-'get_city_info')
-    * [Method '`get_cities_info`'](#Method-'`get_cities_info`')
-    * [Method '`compare_cities`'](#Method-'`compare_cities`')
+    * [Method '`get_cities_info`'](#Method-'get_cities_info')
+    * [Method '`compare_cities`'](#Method-'compare_cities')
 * [Used tools]()
 
 
 ### Task Description
 
-The project is an implemented HTTP server for providing 
-information on geographical objects in Russia. The data 
-is taken from the geographical database «Geonames». 
-The implemented server provides a REST API service.
+The project is an implemented HTTP server for providing information on geographical objects in Russia. The data is taken from the geographical database «Geonames». The implemented server provides a REST API service.
 
 ### Methods description
 
-#### Method '`get_city_info`'
-The method takes the '`geonameid`' as input and 
-returns information about the city.
+#### Method 'get_city_info'
+The method takes the '`geonameid`' as input and returns information about the city.
 
-To call the method, pass the string 
-'`/city/geonameid`',
----
+To call the method, pass the string  '`/city/geonameid`',
 
- where '`geonameid`' is an integer corresponding to a unique
-ID of a certain city.
----
+where '`geonameid`' is an integer corresponding to a unique ID of a certain city.
 
 *Example of usage:*
 
 ![get_city_info success`](resources/images/get_city_info_success.png)
 
-In this case, the '`geonameid`' that exists in the database was passed,
-and the output is a '`json`' object with information
-about this city.
+In this case, the '`geonameid`' that exists in the database was passed, and the output is a '`json`' object with information about this city.
 
 *Example of usage:*
 
 ![get_city_info fail 1`](resources/images/get_city_info_fail1.png)
 
-If you pass a set of digits that doesn't match any '`geonameid`'
-from the database, we will get an error message with this test.
+If you pass a set of digits that doesn't match any '`geonameid`' from the database, we will get an error message with this test.
 
 *Example of incorrect usage:*
 
 ![get_city_info fail 2`](resources/images/get_city_info_fail2.png)
 
-Received an error message indicating that for correct work
-you need to pass an integer.
+Received an error message indicating that for correct work you need to pass an integer.
 
-#### Method '`get_cities_info`'
+#### Method 'get_cities_info'
 
-The method takes the page and the number of cities  displayed 
-on the page and returns a list of cities with their information.
+The method takes the page and the number of cities  displayed on the page and returns a list of cities with their information.
 
-To call the method, pass the string 
-'`/cities/city_1_name,city_2_name,...,city_n_name
-?start=integer_number&limit=integer_number`',
---- 
-where '`city_1_name,city_2_name,...,city_n_name`' are the names 
-of the cities you want to find, '`start`' is a parameter that 
-takes number from which cities from the list of cities should
- be displayed on the page from and '`limit`' is a parameter that 
-takes number of cities from a list of cities you want to see on the page.
----
+To call the method, pass the string '`/cities/city_1_name,city_2_name,...,city_n_name?start=integer_number&limit=integer_number`', where '`city_1_name,city_2_name,...,city_n_name`' are the names of the cities you want to find, '`start`' is a parameter that takes number from which cities from the list of cities should be displayed on the page from and '`limit`' is a parameter that takes number of cities from a list of cities you want to see on the page.
 
-'`city_1_name,city_2_name,...,city_n_name`' can be written in Russian 
-or English, and the names may contain the characters '`«'», « », «-»`'
-and shoud be separated by '`«,» or «, »`'
+'`city_1_name,city_2_name,...,city_n_name`' can be written in Russian or English, and the names may contain the characters '`«'», « », «-»`' and shoud be separated by '`«,» or «, »`'
 
-'`start`' is an optioanal parameter with default value `1`, that
-takes integer number.
+'`start`' is an optioanal parameter with default value `1`, that takes integer number.
 
-'`limit`' is an optioanal parameter with default value `5`, that
-takes integer number.
+'`limit`' is an optioanal parameter with default value `5`, that takes integer number.
 
 *Example of usage:*
 
@@ -85,7 +59,7 @@ takes integer number.
 
 In this case, we are looking for cities '`Заозёрск, MoScOW,kursk`', note that method ignores the case of the inputted string and returns all cities that contains such names in there '`name, asiiname or alternatenames`' characteristics of this city in database.
 
-'`start`' - is missed here as it is an optioanal parameter with default value `1`.
+'`start`' - is missed here as it is an optioanal parameter with default value `1`. 
 And '`limit`' we have clearly indicated here as '`3`'.
 
 In '`json`' object returned by method we can see parameters:
@@ -113,17 +87,14 @@ You may notice that a new '`Search failed`' component has been added. It is disp
 
 Received an error message indicating that for correct work you need to pass a list of cities names separated by '`«,» or «, »`.
 
-#### Method '`compare_cities`'
+#### Method 'compare_cities'
 
 The method takes the names of two cities (in russian) and returns information about the cities found, as well as additional information: which one is located to the North and whether they have the different time zone and how much they differed (when several cities have the same name, resolves ambiguity by choosing a city with a large population; if the population matches, takes the first one that comes across)
 
 To call the method, pass the string
 '`/compare_cities/city_1_name,city_2_name`',
---- 
-where '`city_1_name,city_2_name`' are the names 
-of the cities (in russian) you want to find. Names may contain the characters '`«'», « », «-»`' 
-and shoud be separated by '`«,» or «, »`'
----
+
+where '`city_1_name,city_2_name`' are the names of the cities (in russian) you want to find. Names may contain the characters '`«'», « », «-»`' and shoud be separated by '`«,» or «, »`'
 
 *Example of usage:*
 
@@ -131,8 +102,7 @@ and shoud be separated by '`«,» or «, »`'
 
 In this case, we are looking for cities '`самара, омск`', note that method ignores the case of the inputted string and returns all cities that contains such names in there '`name, asiiname or alternatenames`' characteristics of this city in database.
 
-And the output is a '`json`' object with information
-about these cities in '`Cities`' section.
+And the output is a '`json`' object with information about these cities in '`Cities`' section.
 
 You may notice that a new '`Comparison`' component has been added, which shows an additional information: 
 *   which city is North and how much, 
