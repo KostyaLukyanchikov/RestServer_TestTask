@@ -2,12 +2,12 @@ Test task for an Intern for the position «Analyst (python)»
 ===
 
 ### Title list
-* [Task Description](#Task-Description)
-* [Methods description](#Methods-description)
+* [Task Description](#task-description)
+* [Methods description](#methods-description)
     * [Method '`get_city_info`'](#method-get_city_info)
-    * [Method '`get_cities_info`'](#Method-get_cities_info)
-    * [Method '`compare_cities`'](#Method-compare_cities)
-* [Used tools](#Used-tools)
+    * [Method '`get_cities_info`'](#method-get_cities_info)
+    * [Method '`compare_cities`'](#method-compare_cities)
+* [Used tools](#used-tools)
 
 
 ### Task Description
@@ -137,3 +137,4 @@ Now the same thing happened as in the example above, except that there is no '`C
     Difflib - for creating suggestions
     Re - for working with regex
     Json - for json packaging
+    Markdown - for converting to html
