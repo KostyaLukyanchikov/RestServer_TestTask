@@ -4,7 +4,7 @@ Test task for an Intern for the position «Analyst (python)»
 ### Title list
 * [Task Description](#Task-Description)
 * [Methods description](#Methods-description)
-    * [Method '`get_city_info`'](#Method-get_city_info)
+    * [Method '`get_city_info`'](#method-get_city_info)
     * [Method '`get_cities_info`'](#Method-get_cities_info)
     * [Method '`compare_cities`'](#Method-compare_cities)
 * [Used tools](#Used-tools)
