@@ -1,7 +1,7 @@
 Test task for an Intern for the position «Analyst (python)»
 ===
 
-### Title list
+### Table of contents
 * [Task Description](#task-description)
 * [Methods description](#methods-description)
     * [Method '`get_city_info`'](#method-get_city_info)

@@ -6,9 +6,7 @@ from flask_restful import Resource, Api
 from api_helpers import to_pretty_json, get_paginated_list, filter_not_found
 
 """Notes
-Протестить
-Папка с зависимостями
-python3
+Коменты
 """
 
 app = Flask(__name__)
