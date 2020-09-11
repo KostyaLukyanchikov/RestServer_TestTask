@@ -21,21 +21,21 @@ Test task for an Intern for the position «Analyst (python)»
 #### On MacOS and Linux 
 ##### With pre install virtualenv
 ```
-$ git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git  
-$ python3 -m pip install --user virtualenv  
-$ cd RestServer_TestTask 
-$ python3 -m venv env
-$ source env/bin/activate
-$ pip install -r requirements.txt
-$ python3 script.py
+git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git  
+python3 -m pip install --user virtualenv  
+cd RestServer_TestTask 
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+python3 script.py
 ```
 
 ##### Without pre-install virtualenv
 ```console
-$ git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
-$ cd RestServer_TestTask
-$ pip install -r requirements.txt
-$ py script.py
+git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
+cd RestServer_TestTask
+pip install -r requirements.txt
+python3 script.py
 ```
 
 #### On Windows
@@ -51,11 +51,12 @@ py script.py
 ```
 
 ##### Without pre-install virtualenv
+
 ```console
 git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
 cd RestServer_TestTask
 pip install -r requirements.txt
-python3 script.py
+py script.py
 ```
 
 ### Task Description
