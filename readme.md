@@ -19,7 +19,7 @@ Test task for an Intern for the position «Analyst (python)»
 ### How to start a project
 
 #### On MacOS and Linux 
-##### With pre install virtualenv
+##### With pre-installing virtualenv
 
 ```
 git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 python3 script.py
 ```
 
-##### Without pre-install virtualenv
+##### Without pre-installing virtualenv
 ```
 git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
 cd RestServer_TestTask
@@ -40,7 +40,7 @@ python3 script.py
 ```
 
 #### On Windows
-##### With pre install virtualenv
+##### With pre-installing virtualenv
 ```
 git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
 py -m pip install --user virtualenv
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 py script.py
 ```
 
-##### Without pre-install virtualenv
+##### Without pre-installing virtualenv
 
 ```
 git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
