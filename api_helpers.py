@@ -1,21 +1,24 @@
-import json
 from flask import abort, request
 
 
-def to_pretty_json(value):
-    return json.dumps(value, sort_keys=False,
-                      indent=4, separators=(',', ': '), ensure_ascii=False)
-
-
 def get_paginated_list(results, url, start, limit):
-    start = int(start)
-    limit = int(limit)
+    try:
+        start = int(start)
+        limit = int(limit)
+    except ValueError:
+        abort(404, description="'start' and 'limit' should be integers")
     count = len(results)
-    if count < start or limit < 0:
-        abort(404)
-    # make response
+
+    # checking valid values
+    if count < start:
+        abort(404, description="'start' can't be '>' than 'count'")
+    elif start <= 0:
+        abort(404, description="'start' can't be '<' or '=' than 0")
+    elif limit < 0:
+        abort(404, description="'limit' can't be '<' than 0")
+
     navigation = {'start': start, 'limit': limit, 'count': count}
-    # make URLs
+
     # make previous url
     if start == 1:
         navigation['previous'] = ''
@@ -29,12 +32,14 @@ def get_paginated_list(results, url, start, limit):
     else:
         start_copy = start + limit
         navigation['next'] = url + '?start=%d&limit=%d' % (start_copy, limit)
+
     # finally extract result according to bounds
     navigation['Cities'] = results[start - 1:start - 1 + limit]
     return navigation
 
 
 def filter_not_found(cities_list):
+    # if in response contains component with key 'Search failed'
     if list(cities_list[0].keys())[0] == 'Search failed':
         cities_not_found = cities_list[0]
         try:

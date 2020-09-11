@@ -3,12 +3,60 @@ Test task for an Intern for the position «Analyst (python)»
 
 ### Table of contents
 * [Task Description](#task-description)
+* [How to start a project](#how-to-start-a-project)
+    * [On MacOs and Linux](#on-macos-and-linux)
+        * [With pre install virtualenv](#on-macos-and-linux)
+        * [Without pre-install virtualenv](#on-macos-and-linux)
+    * [On Windows](#on-windows)
+        * [With pre install virtualenv](#on-windows)
+        * [Without pre-install virtualenv](#on-windows)
 * [Methods description](#methods-description)
     * [Method '`get_city_info`'](#method-get_city_info)
     * [Method '`get_cities_info`'](#method-get_cities_info)
     * [Method '`compare_cities`'](#method-compare_cities)
 * [Used tools](#used-tools)
 
+### How to start a project
+
+#### On MacOS and Linux 
+##### With pre install virtualenv
+```
+$ git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git  
+$ python3 -m pip install --user virtualenv  
+$ cd RestServer_TestTask 
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ python3 script.py
+```
+
+##### Without pre-install virtualenv
+```console
+$ git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
+$ cd RestServer_TestTask
+$ pip install -r requirements.txt
+$ py script.py
+```
+
+#### On Windows
+##### With pre install virtualenv
+```console
+git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
+py -m pip install --user virtualenv
+cd RestServer_TestTask
+py -m venv env
+.\env\Scripts\activate
+pip install -r requirements.txt
+py script.py
+```
+
+##### Without pre-install virtualenv
+```console
+git clone https://github.com/KostyaLukyanchikov/RestServer_TestTask.git
+cd RestServer_TestTask
+pip install -r requirements.txt
+python3 script.py
+```
 
 ### Task Description
 
@@ -47,7 +95,7 @@ The method takes the page and the number of cities  displayed on the page and re
 
 To call the method, pass the string '`/cities/city_1_name,city_2_name,...,city_n_name?start=integer_number&limit=integer_number`', where '`city_1_name,city_2_name,...,city_n_name`' are the names of the cities you want to find, '`start`' is a parameter that takes number from which cities from the list of cities should be displayed on the page from and '`limit`' is a parameter that takes number of cities from a list of cities you want to see on the page.
 
-'`city_1_name,city_2_name,...,city_n_name`' can be written in Russian or English, and the names may contain the characters '`«'», « », «-»`' and shoud be separated by '`«,» or «, »`'
+'`city_1_name,city_2_name,...,city_n_name`' can be written in Russian or English, and the names may contain the characters `«'», « », «-»` and shoud be separated by `«,» or «, »`
 
 '`start`' is an optioanal parameter with default value `1`, that takes integer number.
 
@@ -59,7 +107,8 @@ To call the method, pass the string '`/cities/city_1_name,city_2_name,...,city_n
 
 In this case, we are looking for cities '`Заозёрск, MoScOW,kursk`', note that method ignores the case of the inputted string and returns all cities that contains such names in there '`name, asiiname or alternatenames`' characteristics of this city in database.
 
-'`start`' - is missed here as it is an optioanal parameter with default value `1`. 
+'`start`' - is missed here as it is an optioanal parameter with default value `1`.
+
 And '`limit`' we have clearly indicated here as '`3`'.
 
 In '`json`' object returned by method we can see parameters:
@@ -87,6 +136,12 @@ You may notice that a new '`Search failed`' component has been added. It is disp
 
 Received an error message indicating that for correct work you need to pass a list of cities names separated by '`«,» or «, »`.
 
+*Example of incorrect usage:*
+
+![get_cities_info fail 2`](static/images/get_cities_info_fail2.png)
+
+Received an error message indicating that for correct '`start`' and '`limit`' should be only integers.
+
 #### Method compare_cities
 
 The method takes the names of two cities (in russian) and returns information about the cities found, as well as additional information: which one is located to the North and whether they have the different time zone and how much they differed (when several cities have the same name, resolves ambiguity by choosing a city with a large population; if the population matches, takes the first one that comes across)
@@ -94,7 +149,7 @@ The method takes the names of two cities (in russian) and returns information ab
 To call the method, pass the string
 '`/compare_cities/city_1_name,city_2_name`',
 
-where '`city_1_name,city_2_name`' are the names of the cities (in russian) you want to find. Names may contain the characters '`«'», « », «-»`' and shoud be separated by '`«,» or «, »`'
+where '`city_1_name,city_2_name`' are the names of the cities (in russian) you want to find. Names may contain the characters `«'», « », «-»` and shoud be separated by `«,» or «, »`
 
 *Example of usage:*
 
@@ -105,8 +160,9 @@ In this case, we are looking for cities '`самара, омск`', note that me
 And the output is a '`json`' object with information about these cities in '`Cities`' section.
 
 You may notice that a new '`Comparison`' component has been added, which shows an additional information: 
-*   which city is North and how much, 
-*   whether timezones different and how much.
+
+* which city is North and how much, 
+* whether timezones different and how much.
 
 *Example of usage:*
 
@@ -136,5 +192,4 @@ Now the same thing happened as in the example above, except that there is no '`C
     Datetime - for calculating difference between timezones
     Difflib - for creating suggestions
     Re - for working with regex
-    Json - for json packaging
     Markdown - for converting to html

@@ -9,6 +9,8 @@ columns = ["geonameid", "name", "asciiname", "alternatenames", "latitude", "long
 
 table = pd.read_csv('static/RU.txt', header=None, sep="\t", low_memory=False, names=columns, encoding="utf-8")
 
+# Creating new_table to store a column with allnames of a city
+# Search for city by name is performed on this column and then the mask is applied to original table
 new_table = table.copy()
 new_table = new_table.loc[table['feature class'] == 'P']
 
@@ -56,6 +58,7 @@ def compare_cities(url_cities):
 def check_df_for_cities(cities, first_only: bool):
     df_of_cities = pd.DataFrame()
     not_found_cities = []
+    # only places with feature_class 'P' indicates that they are cities
     df_to_apply_mask = table.loc[table['feature class'] == 'P']
     for city in cities:
         city_lower = city.lower()
@@ -63,9 +66,11 @@ def check_df_for_cities(cities, first_only: bool):
         if df_of_cities_with_such_name.empty:
             not_found_cities.append(city)
         else:
+            # used in comapre_cities method to take only one city with biggest population
             if first_only:
                 df_of_cities = pd.concat(
                     [df_of_cities, df_of_cities_with_such_name.sort_values(by=['population'], ascending=False).head(1)])
+            # used in get_cities_info method to take all values containing such name
             else:
                 df_of_cities = pd.concat(
                     [df_of_cities, df_of_cities_with_such_name.sort_values(by=['population'], ascending=False)])
@@ -96,10 +101,12 @@ def cities_found(result, df_of_cities):
     return result
 
 
+# Used for get_cities_info method to make list from string
 def url_cities_to_list_of_cities(cities):
     return [str(city).strip() for city in cities.split(',')]
 
 
+# Used for compare_cities method to make list with only two items from string
 def url_cities_to_two_cities(cities):
     cities = [str(city).strip() for city in cities.split(',')]
     return cities[0], cities[1]
